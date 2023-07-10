@@ -1,0 +1,71 @@
+[tool.ruff]
+line-length = 100
+ignore = ["D203", "D100", "D104", "ARG001", "ANN401", "PT009"]
+select = ["ALL"]
+include = ["*.py"]
+exclude = ["migrations", "manage.py"]
+fix = true
+
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+force-exclude = '''
+(
+    ^.*\/migrations\/.*$
+)
+'''
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+DJANGO_SETTINGS_MODULE = "meditrack.settings"
+python_files = "tests.py test_*.py *_tests.py"
+addopts = "--cov=. --cov-report=html --cov-report=term-missing"
+
+[tool.coverage.run]
+branch = false
+source = ['.']
+omit = [
+    # omit anything in a .local directory anywhere
+    "*/.local/*",
+    "*/migrations/*",
+    # omit tests
+    "*/tests/*",
+    "*/test_*.py",
+    "*/tests.py",
+    # omit wsgi/asgi files
+    "meditrack/asgi.py",
+    "meditrack/wsgi.py",
+    "manage.py",
+    # omit specific files
+]
+
+[tool.coverage.report]
+# Regexes for lines to exclude from consideration
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    "pragma: no cover",
+
+    # Don't complain about missing debug-only code:
+    "def __repr__",
+    "if self\\.debug",
+
+    # Don't complain if tests don't hit defensive assertion code:
+    "raise AssertionError",
+    "raise NotImplementedError",
+
+    # Don't complain if non-runnable code isn't run:
+    "if 0:",
+    "if __name__ == .__main__.:",
+]
+
+ignore_errors = true
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "meditrack.settings"

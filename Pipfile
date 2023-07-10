@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-htmx = "*"
+gunicorn = "*"
+django-environ = "*"
+psycopg2-binary = "*"
+django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
+
+[dev-packages]
+coverage = "*"
+black = "*"
+pytest = "*"
+pytest-django = "*"
+pytest-cov = "*"
+djlint = "*"
+ruff = "*"
+bandit = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.11"

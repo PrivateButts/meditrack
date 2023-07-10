@@ -1,0 +1,12 @@
+{% for log in object_list %}
+    <div>
+        <h1>{{ log }}</h1>
+        <ul>
+            <li>perscription: {{ log.perscription }}</li>
+            <li>taken: {{ log.taken }}</li>
+            <li>created_at: {{ log.created_at }}</li>
+            <li>updated_at: {{ log.updated_at }}</li>
+            <li>notes: {{ log.notes }}</li>
+        </ul>
+    </div>
+{% endfor %}

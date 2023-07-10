@@ -1,0 +1,31 @@
+# VS Code
+.vscode
+
+# Python
+__pycache__
+*.py[cod]
+.pytest_cache
+
+# Django
+*.log
+*.sqlite*
+*.sqlite3*
+.env
+/staticfiles/
+/mediafiles/
+/media/
+/static/
+
+# Coverage
+htmlcov
+.coverage
+
+# Javascript
+node_modules
+frontend/dist
+static/webpack/
+
+e2e-test.ps1
+/postgres/
+coverage.lcov
+coverage.xml

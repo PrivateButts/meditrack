@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "monosans.djlint",
+    "batisteo.vscode-django",
+    "charliermarsh.ruff"
+  ]
+}

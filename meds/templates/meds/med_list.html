@@ -1,0 +1,28 @@
+{% load humanize %}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Med Name</th>
+            <th>Last Taken</th>
+            <th>When you can take next</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for med in object_list %}
+        <tr>
+            <td>{{med.name}}</td>
+            <td title="{{med.last_taken}}">{{med.last_taken | naturaltime}}</td>
+            <td title="{{med.next_dose}}">{{med.next_dose | naturaltime}}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button class="btn btn-success" hx-get="{% url 'meds:log_create' %}?perscription={{med.id}}"
+                        hx-target="#form-holder"><i class="bi bi-file-earmark-plus"></i></button>
+                    <button class="btn btn-info" hx-get="{% url 'meds:log_list' %}?perscription={{med.id}}"
+                        hx-target="#form-holder"><i class="bi bi-journal-medical"></i></button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
